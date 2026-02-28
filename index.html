@@ -835,8 +835,8 @@ async function fetchNVD(vendor, days, signal) {
   // (e.g. kibana is filed under elastic:kibana, not just "kibana" keyword)
   if (cpeInfo) {
     const cpeName = cpeInfo.cpeProduct
-      ? `cpe:2.3:*:${cpeInfo.cpeVendor}:${cpeInfo.cpeProduct}:*`
-      : `cpe:2.3:*:${cpeInfo.cpeVendor}:*`;
+  ? `cpe:2.3:a:${cpeInfo.cpeVendor}:${cpeInfo.cpeProduct}:*:*:*:*:*:*:*:*`
+  : `cpe:2.3:a:${cpeInfo.cpeVendor}:*:*:*:*:*:*:*:*:*`;
     try {
       const cpeVulns = await nvdFetch({cpeName, ...dateParams}, signal);
       let added = 0;
